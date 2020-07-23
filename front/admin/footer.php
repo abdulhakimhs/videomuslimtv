@@ -26,11 +26,15 @@
 <script src="<?= base_url() ?>assets/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url() ?>assets/dist/js/demo.js"></script>
+<!-- Summernote -->
+<script src="<?= base_url() ?>assets/plugins/summernote/summernote-bs4.min.js"></script>
 
 <script>
   $(function () {
     //Initialize Select2 Elements
     $('.select2').select2();
+    // Summernote
+    $('.textarea').summernote()
   })
 </script>
 

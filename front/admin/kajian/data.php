@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label class="col-md-12">Filter Ustadz</label>
                     <div class="col-md-12">
-                        <select name="ustadz_id" id="fustadz" class="form-control">
+                        <select name="fustadz_id" id="fustadz" class="form-control">
                             <option value="">-Pilih Ustadz-</option>
                             <?php foreach ($ustadz as $u) : ?>
                                 <option value="<?= $u['id'] ?>"><?= $u['nama'] ?></option>                                        
@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label class="col-md-12">Filter Kategori</label>
                     <div class="col-md-12">
-                        <select name="ustadz_id" id="fkategori" class="form-control">
+                        <select name="fustadz_id" id="fkategori" class="form-control">
                             <option value="">-Pilih Kategori-</option>
                             <?php foreach ($kategori as $k) : ?>
                                 <option value="<?= $k['id'] ?>"><?= $k['nama'] ?></option>                                        
@@ -137,6 +137,7 @@ function add_data()
 {
     save_method = 'add';
     $('#form')[0].reset(); // reset form on modals
+    $('.textarea').summernote('code', '');
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
@@ -160,9 +161,11 @@ function edit_data(id)
  
             $('[name="id"]').val(data.id);
             $('[name="judul"]').val(data.judul);
-            $('[name="editor"]').val(data.deskripsi);
+            $('.textarea').summernote('code', data.deskripsi);
             $('[name="tags"]').val(data.tags);
             $('[name="url"]').val(data.url);
+            $('[name="kategori_id"]').val(data.kategori_id);
+            $('[name="ustadz_id"]').val(data.ustadz_id);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Ubah Data'); // Set title to Bootstrap modal title
  
@@ -284,7 +287,7 @@ function delete_data(id)
                     <div class="form-group">
                         <label class="col-md-12">Deskripsi</label>
                         <div class="col-md-12">
-                            <textarea name="editor" id="editor"></textarea>
+                            <textarea name="deskripsi" id="deskripsi" class="textarea"></textarea>
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -324,7 +327,7 @@ function delete_data(id)
                     <div class="form-group">
                         <label class="col-md-12">Tags</label>
                         <div class="col-md-12">
-                            <input type="text" class="form-control" name="tags" data-role="tagsinput"> 
+                            <input type="text" class="form-control" name="tags"> <!-- data-role="tagsinput" -->
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -339,14 +342,3 @@ function delete_data(id)
     </div>
   </div>
 </div>
-
-<script>
-        ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .then( editor => {
-                    console.log( editor );
-            } )
-            .catch( error => {
-                    console.error( error );
-            } );
-</script>

@@ -55,7 +55,7 @@ class Kajian extends MY_Controller {
         $data = array(
                 'judul'         => $this->input->post('judul'),
                 'slug'          => seo_title($this->input->post('judul')),
-                'deskripsi'     => $this->input->post('editor'),
+                'deskripsi'     => $this->input->post('deskripsi'),
                 'url'           => $this->input->post('url'),
                 'kategori_id'   => $this->input->post('kategori_id'),
                 'ustadz_id'     => $this->input->post('ustadz_id'),
@@ -78,7 +78,7 @@ class Kajian extends MY_Controller {
         $data = array(
             'judul'         => $this->input->post('judul'),
             'slug'          => seo_title($this->input->post('judul')),
-            'deskripsi'     => $this->input->post('editor'),
+            'deskripsi'     => $this->input->post('deskripsi'),
             'url'           => $this->input->post('url'),
             'kategori_id'   => $this->input->post('kategori_id'),
             'ustadz_id'     => $this->input->post('ustadz_id'),

@@ -18,9 +18,10 @@
   <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/select2/css/select2.min.css">
   <!-- jQuery -->
   <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
-  <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
   <script src="<?= base_url() ?>assets/dist/js/tagsinput.js"></script>
   <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/alt/tagsinput.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/summernote/summernote-bs4.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
