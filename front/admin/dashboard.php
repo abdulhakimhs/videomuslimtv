@@ -5,7 +5,7 @@
         <!-- small box -->
         <div class="small-box bg-info">
             <div class="inner">
-            <h3>5</h3>
+            <h3><?= $kategori ?></h3>
 
             <p>Kategori Kajian</p>
             </div>
@@ -20,7 +20,7 @@
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
-            <h3>10</h3>
+            <h3><?= $ustadz ?></h3>
             <!-- <sup style="font-size: 20px">%</sup> -->
             <p>Ustadz</p>
             </div>
@@ -35,7 +35,7 @@
         <!-- small box -->
         <div class="small-box bg-warning">
             <div class="inner">
-            <h3>2</h3>
+            <h3><?= $pengguna ?></h3>
 
             <p>Pengguna</p>
             </div>
@@ -50,7 +50,7 @@
         <!-- small box -->
         <div class="small-box bg-danger">
             <div class="inner">
-            <h3>65 </h3>
+            <h3><?= $kajian ?> </h3>
 
             <p>Kajian</p>
             </div>

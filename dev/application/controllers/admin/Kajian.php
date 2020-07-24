@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kajian extends MY_Controller {
 
+    public function __construct(){
+		parent::__construct();
+		if($this->session->userdata('logged_in') != TRUE){
+            redirect(base_url("admin"));
+        }
+	}
+
 	public function index()
 	{
 		$data['title']		= 'Video Muslim TV';
@@ -60,7 +67,7 @@ class Kajian extends MY_Controller {
                 'kategori_id'   => $this->input->post('kategori_id'),
                 'ustadz_id'     => $this->input->post('ustadz_id'),
                 'tags'          => $this->input->post('tags'),
-                'pengguna_id'   => 3, //$this->session->userdata('id'),
+                'pengguna_id'   => $this->session->userdata('id'),
                 'created_at'    => date('Y-m-d H:i:s')
             );
         $insert = $this->kajian_model->save($data);
@@ -83,7 +90,7 @@ class Kajian extends MY_Controller {
             'kategori_id'   => $this->input->post('kategori_id'),
             'ustadz_id'     => $this->input->post('ustadz_id'),
             'tags'          => $this->input->post('tags'),
-            'pengguna_id'   => 3, //$this->session->userdata('id')
+            'pengguna_id'   => $this->session->userdata('id')
         );
         $this->kajian_model->update(array('id' => $this->input->post('id')), $data);
         echo json_encode(

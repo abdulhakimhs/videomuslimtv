@@ -16,7 +16,7 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">Ahlan Wasahlan,</a>
-          <a href="#" class="d-block">Abdullah</a>
+          <a href="#" class="d-block"><?= $this->session->userdata('nama'); ?></a>
         </div>
       </div>
 
@@ -66,7 +66,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= site_url('admin/logout') ?>" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt text-danger"></i>
               <p>
                 Keluar
