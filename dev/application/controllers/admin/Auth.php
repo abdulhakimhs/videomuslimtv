@@ -62,39 +62,38 @@ class Auth extends MY_Controller {
 
 	public function changePassword()
 	{
-		$data['title']		= 'User';
-		$data['subtitle']	= 'Change Password';
-		$data['odwaittoday']= $this->dashboard_model->waiting_today()->row_array();
+		$data['title']		= 'Pengaturan';
+		$data['subtitle']	= 'Ubah Password';
 		if (isset($_POST['submit'])) {
 			$this->form_validation->set_rules('oldpass', 'Old Password', 'required');
 			$this->form_validation->set_rules('newpass', 'New Password', 'required');
 			$this->form_validation->set_rules('repass', 'Re Password', 'required|matches[newpass]');
 			if($this->form_validation->run() == FALSE){
-				redirect('changePassword');
+				redirect('admin/changePassword');
 			}
 			else{
 				$users_id		= $this->input->post('users_id');
 				$old 			= $this->input->post('oldpass');
 				$new 			= $this->input->post('newpass');
 
-				$user_detail = $this->db->get_where('pengguna', array('users_id' => $users_id), 1, NULL)->row();
+				$user_detail = $this->db->get_where('pengguna', array('id' => $users_id), 1, NULL)->row();
 				if (@$user_detail->password == crypt($old, @$user_detail->password)) {
 					$object = array(
 						'password' 	 => bCrypt($new,12)
 					);
-					$this->db->where('users_id', $users_id);
+					$this->db->where('id', $users_id);
 					$this->db->update('pengguna', $object);
 					$this->session->set_flashdata('info','<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Password Berhasil Diubah!</div>');
-					redirect('changePassword');
+					redirect('admin/changePassword');
 				}
 				else{
 					$this->session->set_flashdata('info','<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Password lama tidak sesuai!</div>');
-					redirect('changePassword');
+					redirect('admin/changePassword');
 				}
 			}
 		}
-		$this->load->view('template',[
-			'content' => $this->load->view('auth/change_pass',$data,true)
+		$this->load->view('admin/template',[
+			'content' => $this->load->view('admin/change_pass',$data,true)
 		]);
 	}
 

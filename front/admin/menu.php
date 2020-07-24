@@ -65,6 +65,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-header">PENGATURAN</li>
+          <li class="nav-item">
+            <a href="<?= site_url('admin/changePassword') ?>" class="nav-link">
+              <i class="nav-icon fas fa-lock"></i>
+              <p>
+                Ubah Password
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="<?= site_url('admin/logout') ?>" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt text-danger"></i>
